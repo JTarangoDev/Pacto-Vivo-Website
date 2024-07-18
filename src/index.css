@@ -1,0 +1,1347 @@
+html{
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+*{
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-size-adjust: none;
+}
+
+body {
+  font-family: 'Inter Tight', 'Inter', 'Oswald', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #eeeeee;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- SECTIONS GENERAL --------------------------------
+-----------------------------------------------------------------------------*/
+.section-title h3{
+  color: #a68a58;
+  font-size: clamp(2rem, 3vw + 1rem ,10rem);
+  font-weight: 900;
+  line-height: clamp(2rem, 3vw + 1rem ,10rem);
+  text-transform: uppercase;
+}
+
+.section-title p{
+  color: #000;
+  font-size: clamp(1.5rem, 0.964rem + 1.577vw, 5rem);
+}
+
+.italic{
+  font-style: italic;
+}
+
+.section-title span{
+  color: #000;
+  font-size: clamp(1.5rem, 0.964rem + 1.577vw, 5rem);
+  font-weight: 300;
+}
+
+.section-image{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  pointer-events: none;
+  margin: 2dvw 3dvw;
+}
+
+.section-image img{
+  width: 28dvw;
+  border-radius: 25px;
+}
+
+.cta {
+  background-color: transparent;
+  border: .2em solid #fff;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 1.25em 2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: clamp(.5rem, 1vw, 1.3rem);
+}
+
+.cta span{
+  font-weight: 700;
+  font-family: 'Inter Tight';
+}
+
+.cta::before {
+  content: " ";
+  width: 1.5625em;
+  height: .2em;
+  background: white;
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: background 0.3s ease-in, width 0.3s ease-in;
+}
+
+.cta .text {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  padding-left: 2em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+.cta:hover {
+  color: white;
+  background: white;
+}
+
+.cta:hover::before {
+  width: 2.7em;
+  background: black;
+}
+
+.cta:hover .text {
+  color: black;
+  padding-left: 3em;
+}
+
+.bttn {
+  align-items: center;
+  background-color: transparent;
+  color: #5494bb;
+  cursor: pointer;
+  display: flex;
+  font-size: clamp(0.8rem, 0.463rem + 0.991vw, 3rem);
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 1rem;
+  max-width: fit-content;
+}
+
+.bttn:before {
+  background-color: #5494bb;
+  content: "";
+  display: inline-block;
+  height: .1em;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+.bttn:hover:before {
+  background-color: #5494bb;
+  width: 3rem;
+}
+
+/*----------------------------------------------------------------------------
+--------------------------- NAVBAR SECTION -----------------------------------
+-----------------------------------------------------------------------------*/
+#navbar{
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar{
+  width: 100%;
+  height: 9rem;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: all .3s linear;
+  -webkit-box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.3);
+  box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.3);
+}
+
+.scrolled{
+  width: 100%;
+  height: 7rem;
+  position: fixed;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: all .3s linear;
+  -webkit-box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.3);
+  box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.3);
+}
+
+.scrolled .nav-logo img{
+  width: 4rem;
+  padding: 0 1rem;
+  transition: all .3s linear;
+}
+
+
+.navbar .nav-logo img{
+  width: 4rem;
+  padding: 0 1rem;
+  transition: all .2s ease-out;
+}
+
+.navbar .nav-logo img:hover,
+.scrolled .nav-logo img:hover{
+  transform: scale(1.08);
+}
+
+#navbar .nav-links a{
+  font-size: 2.2rem;
+  padding: 1vw;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  width: max-content;
+  transition: color .3s ease;
+  background: transparent;
+}
+
+#navbar .nav-links a:hover{
+  color: #a68a58;
+}
+
+#navbar .nav-links .active{
+  color: #a68a58;
+}
+
+/*----------------------- MOBILE NAVBAR SECTION -------------------------------*/
+
+#navbar .mobile-navbar{
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navbar .mobile-navbar .bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #eeeeee;
+  -webkit-box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 12px -6px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+#navbar .mobile-navbar .bar .nav-logo{
+  padding: 2rem 4rem;
+}
+
+#navbar .mobile-navbar .bar .nav-logo img{
+  width: 10rem;
+  transition: all .1s linear;
+}
+
+.mobile-navbar .toggle-menu{
+  padding: 2rem 4rem;
+}
+
+.burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  transform: scale(.7);
+}
+
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
+}
+
+
+#navbar .mobile-navbar .menu{
+  background: #eeeeeef1;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: -100vh;
+  transition: transform .5s ease-in-out;
+}
+
+.showed{
+  transform: translateY(100vh);
+  transition: transform .5s ease-out;
+}
+
+#navbar .mobile-navbar .menu .links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10rem;
+}
+
+#navbar .mobile-navbar .menu a{
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 1.5vw 0;
+}
+
+@media (max-width: 992px) and (max-height: 450px){
+  .navbar{
+    display: none;
+  }
+  
+  .scrolled{
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (min-height: 450px){
+  #navbar .mobile-navbar{
+    display: none;
+  }
+}
+
+@media (max-width: 834px) {
+  .navbar{
+    display: none;
+  }
+  
+  .scrolled{
+    display: none;
+  }
+  
+}
+
+@media (min-width: 835px) and (min-height: 450px){
+  #navbar .mobile-navbar{
+    display: none;
+  }
+}
+
+@media (min-width: 993px) and (max-height: 450px){
+  #navbar .mobile-navbar{
+    display: none;
+  }
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- HERO SECTION ------------------------------------
+-----------------------------------------------------------------------------*/
+
+#home .hero{
+  background: url('/src/images/hero-bg.png') bottom right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+}
+
+@media (max-width: 820px) {
+  #home .hero{
+    background: url('/src/images/hero-bg-mobil.png') center center;
+    background-size: cover;
+  }
+}
+
+#home .hero .section-container{
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#home .hero .section-container .section-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 8vw;
+}
+
+#home .hero .section-title img{
+  display: block;
+  height: 13vw;
+  padding-bottom: 1.5vw;
+}
+
+#home .hero .section-title span{
+  border-top: .2vw solid #111;
+  padding-top: 1.2vw;
+  padding-inline: 3vw;
+  font-size: 2vw;
+  font-weight: 350;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) and (min-height: 450px){
+  #home .hero .section-container{
+    display: block;
+    width: 100%;
+    position: relative;
+    top: 30%;
+    height: auto;
+  }
+
+  #home .hero .section-container .section-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  #home .hero .section-title img{
+    display: block;
+    height: 26vw;
+    padding-bottom: 4vw;
+  }
+  
+  #home .hero .section-title span{
+    border-top: .4vw solid #111;
+    padding-top: 2.4vw;
+    padding-inline: 6vw;
+    font-size: 4vw;
+    font-weight: 350;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 992px) and (max-height: 450px){
+  #home .hero{
+    background: url('/src/images/hero-bg-mobil-h.png') center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- ABOUT SECTION -----------------------------------
+-----------------------------------------------------------------------------*/
+
+#home .about{
+  background: url('/src/images/about-bg.jpg') fixed center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 100%;
+  -webkit-box-shadow: inset 0px 0px 25px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: inset 0px 0px 25px 5px rgba(0,0,0,0.4);
+  box-shadow: inset 0px 0px 25px 5px rgba(0,0,0,0.4);
+
+}
+
+.about .section-mask {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.about .section-title{
+  height: 100%;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-block: clamp(5rem, 10vw, 12rem);;
+}
+
+.about .section-title h3{
+  text-transform: none;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 8vw, 12rem);
+  font-weight: 900;
+  text-shadow: 0px -1px 8px rgba(0,0,0,0.78);
+  text-transform: uppercase;
+}
+
+.about .section-title h3 strong{
+  font-size: clamp(2.2rem, 8vw, 12rem);
+  font-weight: 900;
+  color: #a68a58;
+}
+
+.about .section-title p{
+  color: #ffffff;
+  font-family: montserrat;
+  font-size: clamp(1rem, 2vw, 4rem);
+  font-weight: 500;
+  text-shadow: 0px -1px 8px rgba(0,0,0,0.78);
+  margin: 4dvw 8dvw;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #home .about{
+    background: url('/src/images/about-bg.jpg') top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- COME SECTION ------------------------------------
+-----------------------------------------------------------------------------*/
+#home .come{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin: 3dvw 10dvw;
+}
+
+.come .section-title{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.come .section-title span{
+  font-size: clamp(2rem, 1.081rem + 2.703vw, 8rem);
+  padding-top: 2rem;
+}
+
+.come .section-title .schedule ul{
+  list-style: none;
+  font-size: clamp(1.5rem, 0.887rem + 1.802vw, 5.5rem);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.come .section-title .schedule ul strong{
+  font-size: clamp(1.5rem, 0.964rem + 1.577vw, 5rem);
+}
+
+.come .section-title .schedule ul li{
+  padding: 1.2dvw 3dvw;
+}
+
+.come .section-title .address-span{
+  font-size: clamp(1.4rem, 0.925rem + 1.396vw, 4.5rem);
+  display: block;
+  padding-top: 0;
+}
+
+.come .section-title .bttn{
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  #home .come{
+    flex-direction: column;
+    margin: 8dvw 6dvw;
+  }
+
+  .come .section-title{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .come .section-title span{
+    padding: 0;
+  }
+
+  .come .section-image img{
+    width: 70dvw;
+  }
+
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- SERVE SECTION -----------------------------------
+-----------------------------------------------------------------------------*/
+#home .serve{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin: 3dvw 10dvw;
+}
+
+.serve .section-title{
+  text-align: center;
+}
+
+.serve .section-title p{
+  margin: 1.5dvw 0 0;
+}
+
+@media (max-width: 768px) {
+  #home .serve{
+    flex-direction: column-reverse;
+    margin: 8dvw 6dvw;
+  }
+
+  .serve .section-title{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5dvw; 
+  }
+
+  .serve .section-title span{
+    padding: 1.2dvw 0;
+  }
+
+  .serve .section-image img{
+    width: 70dvw;
+  }
+
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- PRAY SECTION ------------------------------------
+-----------------------------------------------------------------------------*/
+#home .pray{
+  background: #111;
+}
+
+.pray .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pray .container a{
+  margin: 3dvw 0;
+}
+
+.pray .section-title{
+  text-align: center;
+  padding-top: 3dvw;
+}
+
+.pray .section-title h3{
+  padding-bottom: 1.5dvw;
+}
+
+.pray .section-title p{
+  color: #ffffff;
+}
+
+/*----------------------------------------------------------------------------
+---------------------------- GIVE SECTION ------------------------------------
+-----------------------------------------------------------------------------*/
+.give .container{
+  background: #e6e6e6;
+  display: flex;
+  margin: 0;
+  min-height: 30dvw;
+}
+
+.give .container .section-img{
+  background: url('/src/images/give.jpg') center;
+  background-size: cover;
+  width: 150%;
+}
+
+.give .container .section-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.give .container .section-title h3{
+  text-align: center;
+  font-size: clamp(1.8rem, 0.774rem + 3.018vw, 8.5rem);
+  padding: 3rem;
+}
+
+.give .container .section-title .italic{
+  text-align: center;
+}
+
+.give .container .section-title p{
+  text-align: left;
+  display: inline-block;
+  font-size: clamp(1rem, 0.464rem + 1.577vw, 4.5rem);
+  padding: 1rem 6rem;
+}
+
+.give .container .section-title a{
+  align-self: center;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 0.463rem + 0.991vw, 3rem);
+  background: #a68a58;
+  color: #fff;
+  width: max-content;
+  padding: .4dvw 2dvw;
+  margin: 3rem 0;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background .4s ease;
+}
+
+.give .container .section-title a:hover{
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .give .container{
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .give .container .section-title h3{
+    padding: 1.6rem 0;
+  }
+
+  .give .container .section-img{
+    width: 100%;
+    height: 50dvw;
+  }
+
+  .give .container .section-title p{
+    padding: .8rem 6rem;
+  }
+
+  .give .container .section-title a{
+    margin: 1.6rem 0;
+  }
+}
+
+/*----------------------------------------------------------------------------
+------------------------- MINISTRIES SECTION ---------------------------------
+-----------------------------------------------------------------------------*/
+#home .ministries{
+  background: #e6e6e6;
+  padding: 3dvw 0;
+}
+
+.ministries .section-title h3{
+  text-align: center;
+  font-size: clamp(1.8rem, 0.774rem + 3.018vw, 8.5rem);
+  padding-bottom: 2dvw;
+}
+
+.ministries .logos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ministries .logos img{
+  width: 15%;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  padding: 1dvw 2.5dvw;
+  transition: transform .4s ease;
+}
+
+.ministries .logos img:hover{
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .ministries .logos img{
+    width: 25%;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    padding: 4dvw 2dvw;
+    transition: transform .4s ease;
+  }
+}
+
+@media (max-width: 430px) {
+  .ministries .logos img{
+    width: 35%;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    padding: 4dvw 5dvw;
+    transition: transform .4s ease;
+  }
+}
+
+/*----------------------------------------------------------------------------
+-----------------------------  ABOUT PAGE ------------------------------------
+-----------------------------------------------------------------------------*/
+#aboutPage .page{
+  padding: 0 0 12rem;
+}
+
+#aboutPage .page .img-title{
+  padding-top: 9rem;
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70rem;
+  background: url('/src/images/about.jpg') center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+#aboutPage .page .img-title h3{
+  font-size: clamp(6rem, 4.455rem + 4.545vi, 11rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #a68a58;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+#aboutPage .text-area{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ padding: 0 2rem 6rem;
+}
+
+#aboutPage #mision p{
+  text-align: center;
+  padding: .5rem 0;
+}
+
+#aboutPage .text-area .section-title{
+  font-size: clamp(3rem, 2.484rem + 1.519vi, 5.4rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #a68a58;
+  text-transform: uppercase;
+}
+
+#aboutPage .text-area .section-paragraph{
+  font-size: clamp(2.4rem, 1.97rem + 1.266vi, 4.4rem);
+
+}
+
+#aboutPage .text-area .section-paragraph p{
+  padding: 1rem 3rem;
+}
+
+#aboutPage .text-area ul{
+  list-style: none;
+  font-size: clamp(2.4rem, 1.97rem + 1.266vi, 4.4rem);
+  text-align: center;
+}
+
+#aboutPage .text-area ul li{
+  padding: .4rem 0;
+}
+
+#aboutPage .pastors{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutPage .pastors .section-title{
+  font-size: clamp(1.8rem, 1.585rem + 0.633vi, 2.8rem);
+  text-transform: uppercase;
+}
+
+#aboutPage .pastors span{
+  font-size: clamp(3rem, 2.57rem + 1.266vi, 5rem);
+  padding: 1.6rem;
+  font-weight: 300;
+}
+
+#aboutPage .pastors img{
+  width: clamp(30rem, 27.848rem + 6.329vi, 40rem);
+  border-radius: 20px;
+}
+
+@media (max-width: 834px){
+  #aboutPage .page{
+    padding: 0 0 8rem;
+  }
+
+  #aboutPage .page .img-title{
+    height: 50rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  #aboutPage .text-area .section-paragraph{
+    padding: 0 40rem;
+  }
+}
+
+/*----------------------------------------------------------------------------
+------------------------------  PRAY PAGE ------------------------------------
+-----------------------------------------------------------------------------*/
+#prayPage .page .img-title{
+  padding-top: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70rem;
+  background: url('/src/images/pray.jpg') center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+#prayPage .page .img-title h3{
+  font-size: clamp(6rem, 4.455rem + 4.545vi, 11rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #a68a58;
+  text-transform: uppercase;
+}
+
+#prayPage .text-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 6rem;
+ }
+
+ #prayPage .links-section{
+  background: #dadada;
+ }
+
+ #prayPage .text-area .section-title{
+  font-size: clamp(2.6rem, 1.735rem + 2.545vi, 5.4rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#prayPage .text-area .section-paragraph{
+  font-size: clamp(2.4rem, 1.97rem + 1.266vi, 4.4rem);
+}
+
+#prayPage .text-area .section-paragraph p{
+  padding: 1rem 3rem;
+}
+
+#prayPage .text-area .links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prayPage .text-area .links a{
+  padding: 1rem;
+  margin: 3rem 2rem;
+  border-radius: 50%;
+}
+
+#prayPage .text-area .links .whatsapp{
+  background: #128c7e;
+  color: #eeeeee;
+  transition: all .3s;
+}
+
+#prayPage .text-area .links .mail{
+  background: #12708c;
+  transition: all .3s;
+}
+
+#prayPage .text-area .links svg{
+  width: clamp(2rem, 1.536rem + 1.364vi, 3.5rem);
+  height: auto;
+  color: #eeeeee;
+}
+
+#prayPage .text-area .links .whatsapp:hover,
+#prayPage .text-area .links .mail:hover{
+  background: #000000;
+}
+
+@media (max-width: 834px) {
+  #prayPage .page .img-title{
+    height: 50rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  #prayPage .text-area .section-paragraph{
+    padding: 0 35rem;
+  }
+}
+
+/*----------------------------------------------------------------------------
+------------------------------  GIVE PAGE ------------------------------------
+-----------------------------------------------------------------------------*/
+#givePage .page{
+  padding-bottom: 6rem;
+}
+
+#givePage .page .img-title{
+  padding-top: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70rem;
+  background: url('/src/images/givePage.jpg') center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+#givePage .page .img-title h3{
+  font-size: clamp(6rem, 4.455rem + 4.545vi, 11rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #a68a58;
+  text-transform: uppercase;
+}
+
+#givePage .text-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 6rem;
+ }
+
+#givePage .text-area .section-title{
+  font-size: clamp(2.6rem, 1.735rem + 2.545vi, 5.4rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#givePage .text-area .section-paragraph{
+  font-size: clamp(2.4rem, 1.97rem + 1.266vi, 4.4rem);
+}
+
+#givePage .text-area .section-paragraph p{
+  padding: 1rem 3rem;
+}
+
+#givePage .give-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0 6rem;
+ }
+
+ #givePage .give-info .section-title{
+  font-size: clamp(2.6rem, 1.735rem + 2.545vi, 5.4rem);
+  padding: 0 0 1rem;
+  font-weight: 900;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+ }
+
+ #givePage .give-info .section-text{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: clamp(2.4rem, 1.97rem + 1.266vi, 4.4rem);
+}
+
+#givePage .give-info .section-text h4{
+  font-size: clamp(2rem, 1.505rem + 1.455vi, 3.6rem);
+  padding: 0 1.6rem 2rem;
+  text-align: center;
+}
+
+#givePage .give-info .section-text .bank{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+  background: #333333;
+  color: #ffffff;
+  padding: 3rem 0;
+}
+
+.section-text .bank .info{
+  display: flex;
+  flex-direction: column;
+}
+
+.section-text .bank .info span{
+  font-size: clamp(1.3rem, 0.96rem + 1vi, 2.4rem);
+  padding: .6rem;
+}
+
+.section-text .bank .info strong{
+  font-size: clamp(1.3rem, 0.96rem + 1vi, 2.4rem);
+  font-weight: 800;
+}
+
+#givePage .give-info .section-text .paypal{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 50%;
+  background: #dadada;
+  padding: 3rem 0;
+}
+
+.section-text .paypal a{
+  background: #0079C1;
+  color: #fff;
+  padding: 1.2rem 3rem;
+  border-radius: 25px;
+  align-self: center;
+  margin: clamp(2rem, 1.073rem + 2.727vi, 5rem) 0;
+  transition: background .3s;
+  font-size: clamp(1.8rem, 1.676rem + 0.364vi, 2.2rem);
+}
+
+.section-text .paypal a svg{
+  font-size: clamp(1.6rem, 1.476rem + 0.364vi, 2rem);
+  padding-right: 1rem;
+}
+
+.section-text .paypal a:hover{
+  background: #000;
+}
+
+@media (max-width: 768px){
+  #givePage .give-info .section-text{
+    flex-direction: column;
+  }
+
+  #givePage .give-info .section-text .bank{
+    width: 100%;
+  }
+
+  #givePage .give-info .section-text .paypal{
+    width: 100%;
+  }
+
+  #givePage .text-area{
+    padding: 6rem 2rem 0;
+   }
+
+   #givePage .give-info{
+    padding: 6rem 0 0;
+   }
+}
+
+@media (max-width: 834px) {
+  #givePage .page .img-title{
+    height: 50rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  #givePage .text-area .section-paragraph{
+    padding: 0 20rem;
+  }
+}
+/*----------------------------------------------------------------------------
+------------------------------- FOOTER ---------------------------------------
+-----------------------------------------------------------------------------*/
+#footer{
+ background-color: #f5f5f5;
+}
+
+.footer .foo-wraper{
+  position: relative;
+  width: 70%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  font-size: clamp(4rem, 2.622rem + 4.054vw, 13rem);
+}
+
+.footer .foo-wraper .rights{
+  font-size: clamp(1.6rem, 1.11rem + 1.441vw, 4.8rem);
+  padding: 2dvw;
+}
+
+.foo-wraper .links{
+ display: flex;
+ justify-content: space-between;
+  align-items: center;
+  border-bottom: #c0c0c0 solid .1dvw;
+  padding: 2dvw;
+  padding-top: 3dvw;
+}
+
+.foo-wraper .links .logo img{
+  width: clamp(5rem, 2.836rem + 6.364vi, 12rem);
+}
+
+.foo-wraper .links .social-links{
+  display: flex;
+  align-items: center;
+}
+
+.foo-wraper .links .social-links svg{
+  width: clamp(1.5rem, 0.964rem + 1.577vw, 5rem);
+  height: auto;
+  padding: 0 .3dvw;
+  color: #a68a58;
+  transition: color .3s ease;
+}
+
+
+.foo-wraper .links .social-links svg:hover{
+  color: #000;
+}
+
+.foo-wraper .info-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2dvw 2dvw 0;
+}
+
+.foo-wraper .info-nav .foo-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.foo-wraper .info-nav .foo-info a{
+  padding: .5dvw 0;
+  color: #a68a58;
+  width: max-content;
+  transition: color .3s ease;
+  text-decoration: none;
+}
+
+.foo-wraper .info-nav .foo-nav{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.foo-wraper .info-nav .foo-nav a{
+  padding: .2dvw 0;
+  color: #a68a58;
+  width: max-content;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+.foo-wraper .info-nav .foo-info a:hover,
+.foo-wraper .info-nav .foo-nav a:hover{
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  #footer .foo-wraper{
+    width: 100% !important;
+  }
+
+  .foo-wraper .links{
+    flex-direction: column;
+   }
+   
+  .foo-wraper .links .logo img{
+    padding: 1dvw 0;
+  }
+  
+  .foo-wraper .links .social-links{
+    padding: 4dvw 0;
+  }
+  
+  .foo-wraper .links .social-links svg{
+    padding: 0 2dvw;
+  }
+
+  .foo-wraper .info-nav{
+    flex-direction: column;
+  }
+
+  .foo-wraper .info-nav .foo-info{
+    align-items: center;
+    padding: 4dvw 0;
+  }
+
+  .foo-wraper .info-nav .foo-nav{
+    align-items: center;
+  }
+  
+  #footer .foo-wraper .rights{
+    padding: 4dvw 0;
+    display: flex;
+    justify-content: center;
+  }
+}
